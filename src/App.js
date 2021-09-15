@@ -1,6 +1,8 @@
 import './App.css';
 import MenuContainer from './Components/MenuContainer';
-import Product from './Components/Product'
+import { useState } from 'react';
+import FilterProduct from './Components/FilterProduct';
+import Cart from './Components/Cart';
 
 function App() {
   const [products, setProducts] = useState([
@@ -11,16 +13,30 @@ function App() {
     { id: 5, name: 'Guaraná', category: 'Bebidas', price: 4.99 },
     { id: 6, name: 'Coca', category: 'Bebidas', price: 4.99 },
     { id: 7, name: 'Fanta', category: 'Bebidas', price: 4.99 },
-  ]); 
+  ]);
 
-const [filteredProducts, setFilteredProducts] = useState([]);
+  const [filteredProducts, setFilteredProducts] = useState('');
+  const [currentSale, setCurrentSale] = useState([])
+  const [cartTotal, setCartTotal] = useState(0)
+  const[inputValue, setInputValue] = useState('')
 
-const [currentSale, setCurrentSale] = useState([])
-const [cartTotal, setCartTotal] = useState(0)
+
+  const showProducts = () => {
+    const filtered = products.filter((p) => p.name === filteredProducts)
+    setFilteredProducts(filtered)
+  }
+
+  const handleClick = (productId) => {
+    const found = products.find((p) => p.id === productId)
+  }
+
+  
 
   return (
     <div className="App">
-     
+      <FilterProduct inputValue={inputValue} setInputValue={setInputValue} showProducts={showProducts} />
+      <MenuContainer productsList={products} handleAdd={handleClick} />
+     <Cart cartTotal={cartTotal} currentSale={currentSale}/>
     </div>
   );
 }
