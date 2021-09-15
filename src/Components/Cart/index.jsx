@@ -1,3 +1,5 @@
+import "./index.css"
+
 const Cart = ({cartTotal, currentSale}) => {
     console.log(currentSale);
     return (

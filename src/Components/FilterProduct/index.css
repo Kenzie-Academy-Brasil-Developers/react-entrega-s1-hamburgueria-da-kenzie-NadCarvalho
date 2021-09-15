@@ -1,0 +1,16 @@
+.filteredProduct {
+    margin: 2vh 0;
+}
+
+.filteredProduct input {
+    padding: 10px 30px;
+    border: 1px solid gray;
+}
+
+.btnFilter {
+    padding: 10px;
+    background-color: #267AFE;
+    border: 1px solid gray;
+    color: white;
+    font-weight: bold;
+}

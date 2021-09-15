@@ -1,3 +1,5 @@
+import "./index.css"
+
 const FilterProduct = ({filteredProducts, showProducts, inputValue, setInputValue}) => {
      return (
         <div className="filteredProduct">
