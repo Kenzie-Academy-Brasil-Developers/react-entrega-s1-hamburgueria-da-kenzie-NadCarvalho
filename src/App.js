@@ -15,15 +15,15 @@ function App() {
     { id: 7, name: 'Fanta', category: 'Bebidas', price: 4.99 },
   ]);
 
-  const [filteredProducts, setFilteredProducts] = useState('');
   const [currentSale, setCurrentSale] = useState([])
   const [cartTotal, setCartTotal] = useState(0)
-  const[inputValue, setInputValue] = useState('')
+  const [inputValue, setInputValue] = useState('')
 
 
   const showProducts = () => {
-    const filtered = products.filter((p) => p.name === filteredProducts)
-    setFilteredProducts(filtered)
+    
+    const filtered = products.filter((p) => p.name === inputValue)
+    setProducts(filtered)
   }
 
   const handleClick = (productId) => {
