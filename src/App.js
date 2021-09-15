@@ -34,6 +34,13 @@ function App() {
 
   const handleClick = (productId) => {
     const found = products.find((p) => p.id === productId)
+    const inCart = currentSale.find((c) => c.id === productId)
+
+    if(found && !inCart){
+      setCurrentSale([...currentSale, found])
+      setCartTotal(cartTotal + found.price)
+    }
+    
   }
 
   

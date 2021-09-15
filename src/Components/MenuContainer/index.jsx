@@ -4,7 +4,7 @@ const MenuContainer = ({ productsList, handleAdd }) => {
   return (
     <ul>
       {productsList.map(product =>
-        <li>
+        <li key={product.id}>
           <Product item={product}
             handleClick={handleAdd} />
         </li>
